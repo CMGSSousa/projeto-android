@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+/* 
+adicionar font online, não esquecer na linha 31 está a tag bebas nue para esta fonte, que é encontrada no style
+google fonts por exemplo, import etc etc que tem toda a informação
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*
+adicionar fonte que se tenha numa pasta e criar a tag Android para a fonte
+./ é a pasta atual, ../ é a pasta anterior
+*/
+@font-face {
+    font-family: "Android"; /* é a tag que define o estilo que se vai importar */
+    src: url("../fontes/idroid.otf") format("opentype");
+    font-weight: normal; /* escolha do estilo se a font tiver vários (italico etc etc) */
+}
+
+/*
+root é a raiz e tudo o que se escrever aí fica para o documento inteiro. é o local ideal para variáveis. começam sempre com dois traços ---> --
+*/
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrão: "arial", "verdana", "helvetica", "sans-serif";
+    --fonte-destaque: "Bebas Neue", "cursive";
+    --fonte-android: "Android", "cursive";
+    ---external-chain: "\00A0\1F517" /* corrente para links externos */
+    
+}
+
+
+/*
+quando se quer escolher todas as áreas semânticas ou não para um estilo a definir/margem etc etc, basta fazer a regra na área ----->  * {}  <------- asterisco
+no caso 0px para ficar ajustado o interior ao máximo da página
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+      
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrão);
+}
+a.externo::after {     /* tag para links externos ficarem com o icone da corrente a seguir à palavra chave */
+    content: var(---external-chain)
+}
+ 
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); /* fundo com cor gradual */
+    min-height: 150px;
+    padding-top: 40px;
+}
+
+header > h1 {
+    text-align: center;
+    transition: 1s;
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    text-shadow: 5px 6px 0px black;
+    margin: auto;
+    max-width: 700px;
+    
+}
+header > h1:hover {
+    max-width: 1200px;
+    transition: 1s;
+    font-size: 7em;
+    max-width: 100%;
+    
+}
+
+header > p {
+    font-family: var(--fonte-padrão);
+    font-size: 1.2em;
+    color: white;
+    max-width: 500px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    text-shadow: 5px 6px 0px black;
+
+}
+
+nav {
+    background-color: var(--cor5);
+    box-shadow: 2px 6px 6px 0px black;
+    padding: 17px;
+}
+nav > a {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none; /* retira o sublinhado nos links */
+    font-weight: bold; 
+    transition-duration: .5s; /* transição das caracteristicas inseridas */
+    
+    
+    
+    
+}
+nav a:hover {
+    background-color: var(--cor3);
+    color: var(--cor5);
+    box-shadow: 10px 10px 10px 0px black;
+    font-size: 2em;
+}
+
+
+
+main {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    min-width: 300px;
+    max-width: 1000px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.801); /* sombra da caixa */
+    border-bottom-left-radius: 10px; /* arredondamento das esquinas da caixa */
+    border-bottom-right-radius: 10px;  /* arredondamento das esquinas da caixa */  
+}
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+}
+
+main h2 {
+    
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor3), transparent); /* fundo com cor gradual */
+    text-indent: 8px;
+    border-radius: 8px;
+   
+    
+}
+main img {
+    width: 100%; /* tag fe forma à foto ficar sempre inteira e ajustar o tamanho da imagem */
+    
+    
+}
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px; /* paragrafo com 30px */
+    font-size: 1.1em;
+    line-height: 2em; /* altura das linha, 2em é 2x a altura da linha */
+    
+}
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+   
+
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+
+}
+main img.pequena {
+    max-width: 350px;
+    display: block; /* tornar o campo ou linha num bloco para poder ser ajustado */
+    margin: auto; /* tag para ficar ajustado sempre a meio da página */
+    
+}
+div.video {
+
+    background-color: var(--cor5);
+    margin: auto;
+    border: solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 1%;
+    box-shadow: 4px 4px 13px 0px black;
+}
+main > article > div > iframe {
+    display: block;
+    margin: auto;
+    width: 80%;
+    box-shadow: 4px 4px 13px 0px black;
+
+    
+    
+}
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px; /* curvas esquinas  */
+    box-shadow: 4px 4px 13px 0px black; /*  sombra */
+}
+
+aside h3 {
+    color: white;
+    background-color: var(--cor4);
+    padding: 20px;
+    margin: -10px -10px -8px -10px; /* usar margens negativas para puxar para o sitio necessário  */
+    border-radius: 10px 10px 0px 0px;
+}
+aside > ul {
+    list-style-type: "\2713\00A0\00A0"; /* emojipedia para sacar icones. espaço -----> \00A0 <----  usar a barra \ caso contrário não funciona */
+    list-style-position: inside; /* colocar o icone dentro ou fora do elemento  */
+    columns: 2; /*  escolher o número de colunas na lista */
+
+}
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    padding: 10px;
+}
+footer > p > a { /* exemplo de algo que está dentro do footer, p e tem o link a,
+    se fosse só footer A, sem os maiores, também funcionava neste caso */
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    background-color: var(--cor2);
+    border-radius: 3px;
+    padding: 0px 10px;
+}
+.endereço:hover {
+    text-decoration: none;
+    color: var(--cor5);
+    background-color: white;
+    font-size: 2em;
+    box-shadow: 3px 3px 3px 0px black;
+}
